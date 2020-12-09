@@ -14,19 +14,27 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
-public class Ex2 implements Runnable{
+public class Ex2 implements Runnable
+{
 	private static MyFrame _win;
 	private static Arena _ar;
-	public static void main(String[] a) {
+	public static int gameNumber;
+	public static long id;
+
+	
+	public static void main(String[] args) //srgs = [id, gameNumber]
+	{
+		id = Long.parseLong(args[0]);
+		gameNumber = Integer.parseInt(args[1]);
+		
 		Thread client = new Thread(new Ex2());
 		client.start();
 	}
 	
 	@Override
-	public void run() {
-		int scenario_num = 11;
-		game_service game = Game_Server_Ex2.getServer(scenario_num); // you have [0,23] games
-	//	int id = 999;
+	public void run() 
+	{
+		game_service game = Game_Server_Ex2.getServer(gameNumber); // you have [0,23] games
 	//	game.login(id);
 		String g = game.getGraph();
 		String pks = game.getPokemons();
