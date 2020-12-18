@@ -1,1 +1,2 @@
-# Ex2_Repository_Example
+# Ex2
+## Alon Zimmerman
